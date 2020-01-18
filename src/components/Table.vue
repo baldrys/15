@@ -13,19 +13,11 @@ import { mapState } from 'vuex'
 
 export default {
     name: 'Table',
-    // mounted(){
-        
-    //      this.$store.dispatch('initCells')
-    //      console.log(this.$store.state.cells);
-         
-    // },
-    // computed: {
-    //     cells () {
-    //         return this.$store.state.Table.cells
-    //     }
-    // }
+    mounted(){
+      this.$store.dispatch('TableStore/initCells')        
+    },
     computed:{
-      ...mapState('Table', ["cells"])
+      ...mapState('TableStore', ["cells"])
     }
 
 }

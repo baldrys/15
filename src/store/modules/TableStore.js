@@ -1,5 +1,5 @@
 const defaultState = {
-    cells: null,
+    cells: [[]],
 };
 
 const mutations = {
@@ -10,18 +10,16 @@ const mutations = {
 
 const actions = {
     initCells(context){
-
-        let cells = 1488;
-        // const N = 4;
-        // let cells =[];
-        // let l = 0;
-        // for (let i = 0; i < N; i++) { 
-        //     cells[i] = [];
-        //     for (let j = 0; j < N; j++) {
-        //         cells[i][j] = l;
-        //         l++;
-        //     }
-        // }
+        const N = 4;
+        let cells =[];
+        let l = 0;
+        for (let i = 0; i < N; i++) { 
+            cells[i] = [];
+            for (let j = 0; j < N; j++) {
+                cells[i][j] = l;
+                l++;
+            }
+        }
         context.commit('updateCells', cells)
     }
 };

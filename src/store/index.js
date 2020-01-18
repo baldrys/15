@@ -1,6 +1,6 @@
 import Vue from "vue"
 import Vuex from "vuex"
-import Table from './modules/Table'
+import TableStore from './modules/TableStore'
 
 Vue.use(Vuex)
 
@@ -9,6 +9,6 @@ export default new Vuex.Store({
     //     cells: 1488
     // }
     modules: {
-        Table
+        TableStore
     }
 })
