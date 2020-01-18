@@ -5,5 +5,10 @@ import Table from './modules/Table'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    modules:{Table}
+    // state:{
+    //     cells: 1488
+    // }
+    modules: {
+        Table
+    }
 })

@@ -6,5 +6,5 @@ import store from './store'
 
 new Vue({
   render: h => h(App),
-  store
+  store: store
 }).$mount('#app')
