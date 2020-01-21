@@ -8,8 +8,6 @@ const mutations = {
     },
     swapCells(state, payload) {
         const fistCell = state.cells[payload.cell1.x][payload.cell1.y];
-        // state.cells[payload.cell1.x][payload.cell1.y] = state.cells[payload.cell2.x][payload.cell2.y];
-        // state.cells[payload.cell2.x][payload.cell2.y] = fistCell;
         state.cells[payload.cell1.x].splice(payload.cell1.y, 1, state.cells[payload.cell2.x][payload.cell2.y]);
         state.cells[payload.cell2.x].splice(payload.cell2.y, 1, fistCell);
     }
@@ -33,7 +31,7 @@ const actions = {
 
     swapCells(context, payload ){
         context.commit('swapCells', payload)
-    }
+    },
 };
 
 const getters = {
