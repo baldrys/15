@@ -1,45 +1,39 @@
 <template>
-  <div class="container">
+  <div class="puzzle">
+    <div class="game-field puzzle__game-field">
+        <div class="game-field__header">
+          <div class="count">
+            <span class="count__text" >Действий: {{ count }}</span>
+          </div>
+          <div class="timer">
+            <span class="timer__text">Прошло времени: {{ formatedTime }}</span>
+          </div>
+        </div>
+        <table class="game-table">
+          <tr class="game-table__row" v-for="(row, i) in cells" :key="i">
+            <td class="game-table__col" v-for="(col, j) in row" :key="j"
+              v-on:click="cellClicked(i, j)">
+                <div :key="col">{{ col }}</div> 
+            </td>
+          </tr>
+        </table>
+    </div>
 
-  <div class="game-field">
-      <div class="game-field__header">
-      <div class="game-field__count">
-        <span>Действий: </span>
-        {{ count }}
-      </div>
-      <div class="game-field__timer">
-        <span>Прошло времени: </span>
-        {{ formatedTime }}
+    <div id="myModal" class="modal" tabindex="-1" role="dialog" data-toggle="modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Победа!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Вы победили!</p>
+          </div>
+        </div>
       </div>
     </div>
-    <table class="game-table">
-      <tr class="game-table__row" v-for="(row, i) in cells" :key="i">
-        <td class="game-table__col" v-for="(col, j) in row" :key="j"
-          v-on:click="cellClicked(i, j)">
-            <div class="cell-bg" :key="col">{{ col }}</div> 
-        </td>
-      </tr>
-    </table>
-  </div>
-
-
-<div id="myModal" class="modal" tabindex="-1" role="dialog" data-toggle="modal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Победа!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Вы победили!</p>
-      </div>
-    </div>
-  </div>
-</div>
-    
-   
   </div>
 </template>
 
@@ -215,8 +209,11 @@ export default {
 </script>
 
 <style>
-  .game-field{
-      margin: 0 auto;
+  .puzzle__game-field {
+    margin: 0 auto
+  }
+
+  .game-field {
       width: 400px;
   }
   .game-table {
